@@ -126,3 +126,23 @@ int detectloop(Node *head)
 
     // your code here
 }
+
+//OR
+
+int detectloop(Node *head)
+{
+
+    Node *slowptr = head, *fastPtr = head;
+
+    while (fastPtr && fastPtr->next)
+    {
+        slowptr = slowptr->next;
+        fastPtr = fastPtr->next->next;
+        if (fastPtr == slowptr)
+            return 1;
+    }
+
+    return 0;
+
+    // your code here
+}
